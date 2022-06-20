@@ -107,7 +107,6 @@
 // }
 
 // // find
-// // let val = years.find(over18);
 
 // // filter
 // let val = years.filter(over18);
@@ -118,6 +117,91 @@
 // console.log(names.length);
 // console.log(typeof names);
 
-// // console.log(years);
-// // console.log(mix);
+// // // console.log(years);
+// // // console.log(mix);
+
+// var arr = ["bwm,mercedes.opel.mazda"]
+
+// arr.push('toyota')
+
+// arr.unshift('seat')
+
+// console.log(arr)
+
+// var studentA = ['yiğit,bilgi,2010']
+// var studentB = ['kaan,cankat,2008']
+
+
+// console.log(students)
+
+// const firstname='kaan'
+// const age = 14
+// const isStudent = true
+// const school = 'highscool'
+
+// if(firstname === 'kaan'){
+//     console.log('merhaba kaan')
+// }
+// if(age == 14){
+//     console.log('yaşınız 14')
+// }
+
+// if(isStudent==true){
+//     console.log('merhaba öğrenci')
+// }else{
+//     console.log('merhaba işler nasıl')
+// }
+
+// if (age>=18){
+
+//     if (school =='university'){
+//         console.log('ehliyet alabilirsiniz')
+//     }else{
+//         console.log('eğitim durumunuz yetersiz')
+//     }
+    
+
+// }else{
+//     console.log('ehliyet alamazsınız')
+// }
+
+// if (age > 0 && age<12 ){
+//     console.log(`${firstname} is a child`)
+// }else if (age>=13 && age <=19){
+//     console.log(`${firstname} is a teenager)
+// }
+
+// let category = 'telefon'
+
+// switch(category){
+//     case'telefon':
+// console.log(telefon katagorisi)
+// break;
+
+// case'bilgisiyar'
+// console.log('bilgisiyar katagorisi');
+
+// default
+// console.log('yanlış katagori')
+
+// }
+// let val
+
+
+// let person = {
+//     firstName :'kaan',
+//     lastName :'cankat'
+    
+
+// }
+
+// val =person.firstName
+// val=person.lastName
+// val=person['firstName']
+// console.log(person)
+// console.log(typeof person)
+
+
+
+
 
