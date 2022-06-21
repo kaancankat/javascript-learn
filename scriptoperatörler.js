@@ -31,3 +31,4 @@ sonuc = (a <= b)
 // 4- Mantıksal Operatörler
 
 console.log(sonuc);
+a

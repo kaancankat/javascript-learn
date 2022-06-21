@@ -36,3 +36,5 @@ console.log(`${urunler[2]}-${fiyatlar[2]}-${renkler[2]}`);
 let kursAdi = "Komple Web Geliştirme Eğitimi";
 console.log(kursAdi[5]);
 console.log(kursAdi.split(" ")[3]);
+
+s

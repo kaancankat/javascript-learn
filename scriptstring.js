@@ -27,4 +27,4 @@ sonuc = kursAdi.split(" ")[3];
 
 console.log(sonuc);
 
-
+sdad

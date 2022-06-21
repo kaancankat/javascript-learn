@@ -14,6 +14,7 @@ yazdır()
 console.log(isim)
 
 
+fvh
 
 
 
