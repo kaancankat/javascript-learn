@@ -16,12 +16,22 @@
                     <div class="card-header">
                         Todo App 
                     </div>
+                    <div class="card-body">
+                    <form >
+                        <input type="text" name="txtTaskName" id="txtTaskName" class="form-control">
+                        <button class="btn btn primary" id="btnAddNewTask">
+                          ekle  
+                        </button>
+                    </form>
+                    </div>
                 </div>
-
                 <div class="card mt-3">
                     <ul id="task-list" class="list-group list-group-flush">
                     </ul>
                 </div>
+
+            </div><div class="card-header">
+                <button class="btn btn-danger btn-sm.fload-end">temizle</button>
             </div>
         </div>
     </div>
@@ -58,21 +68,16 @@
         }
 
 
-        // document.querySelector("#task-list").parentElement.remove();
-        // document.querySelector("#task-list").children[0].remove();
-        // document.querySelector("#task-list").children[1].remove();
-
-        // document.querySelector("#task-list").removeAttribute("class");
-        // document.querySelector("#task-list").children[1].removeAttribute("class");
-        // sonuc = document.querySelector("#task-list").children[1].getAttribute("class");
-        // document.querySelector("#task-list").children[1].setAttribute("class","aaa");
-        // sonuc = document.querySelector("#task-list").children[1].classList[1];
-        document.querySelector("#task-list").children[1].classList.add("bg-danger");
-        // document.querySelector("#task-list").children[1].classList.remove("bg-danger");
-        sonuc = document.querySelector("#task-list").children[1].classList.contains("bg-warning");
+let btnekle=document.querySelector("#btnAddNewTask")
       
+btnekle.addEventListener("click",function() {
 
-        console.log(sonuc);
+    console.log("click event")
+
+})
+
+
+     console.log("click event")
 
       
     </script>

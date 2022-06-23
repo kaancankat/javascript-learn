@@ -16,12 +16,22 @@
                     <div class="card-header">
                         Todo App 
                     </div>
+                    <div class="card-body">
+                    <form >
+                        <input type="text" name="txtTaskName" id="txtTaskName" class="form-control">
+                        <button class="btn btn primary" id="btnAddNewTask">
+                          ekle  
+                        </button>
+                    </form>
+                    </div>
                 </div>
-
                 <div class="card mt-3">
                     <ul id="task-list" class="list-group list-group-flush">
                     </ul>
                 </div>
+
+            </div><div class="card-header">
+                <button class="btn btn-danger btn-sm.fload-end">temizle</button>
             </div>
         </div>
     </div>
@@ -58,23 +68,21 @@
         }
 
 
-        // document.querySelector("#task-list").parentElement.remove();
-        // document.querySelector("#task-list").children[0].remove();
-        // document.querySelector("#task-list").children[1].remove();
+function newTask(evet)
 
-        // document.querySelector("#task-list").removeAttribute("class");
-        // document.querySelector("#task-list").children[1].removeAttribute("class");
-        // sonuc = document.querySelector("#task-list").children[1].getAttribute("class");
-        // document.querySelector("#task-list").children[1].setAttribute("class","aaa");
-        // sonuc = document.querySelector("#task-list").children[1].classList[1];
-        document.querySelector("#task-list").children[1].classList.add("bg-danger");
-        // document.querySelector("#task-list").children[1].classList.remove("bg-danger");
-        sonuc = document.querySelector("#task-list").children[1].classList.contains("bg-warning");
-      
+event.preventDefault()
 
-        console.log(sonuc);
+    let taskInput =document.querySelector("#txtTaskName")
+    let li = `
+                <li class="task list-group-item">
+                    <div class="form-check">
+                        <input type="checkbox" id="5" class="form-check-input">
+                        <label for="5" class="form-check-label">${task.Input.value}</label>
+                    </div>
+                </li>
+            `;
 
-      
+            event.preventDefault()
     </script>
 
 </body>
