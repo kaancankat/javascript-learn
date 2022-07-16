@@ -86,4 +86,3 @@ document.getElementById('course-list').addEventListener('click',function(e){
     ui.deleteCourse(e.target);
     ui.showAlert('the course has been deleted','danger');
 });
-
