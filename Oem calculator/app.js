@@ -1,12 +1,7 @@
 // Storage Controller
 const StorageController = (function () {
 
-
-
-
 })();
-
-
 
 // Product Controller
 const ProductController = (function () {
@@ -32,6 +27,22 @@ const ProductController = (function () {
         getData: function () {
             return data;
         },
+        getProductById: function (id) {
+            let product = null;
+
+            data.products.forEach(function (prd) {
+                if (prd.id == id) {
+                    product = prd;
+                }
+            })
+            return product;
+        },
+        setCurrentProduct: function (product) {
+            data.selectedProduct = product;
+        },
+        getCurrentProduct: function () {
+            return data.selectedProduct;
+        },
         addProduct: function (name, price) {
             let id;
 
@@ -44,6 +55,16 @@ const ProductController = (function () {
             const newProduct = new Product(id, name, parseFloat(price));
             data.products.push(newProduct);
             return newProduct;
+        },
+        getTotal: function () {
+            let total = 0;
+
+            data.products.forEach(function (item) {
+                total += item.price;
+            });
+
+            data.totalPrice = total;
+            return data.totalPrice;
         }
     }
 
@@ -59,7 +80,9 @@ const UIController = (function () {
         addButton: '.addBtn',
         productName: '#productName',
         productPrice: '#productPrice',
-        productCard: '#productCard'
+        productCard: '#productCard',
+        totalTL: '#total-tl',
+        totalDolar: '#total-dolar'
     }
 
     return {
@@ -72,10 +95,8 @@ const UIController = (function () {
                      <td>${prd.id}</td>
                      <td>${prd.name}</td>
                      <td>${prd.price} $</td>
-                     <td class="text-right">
-                         <button type="submit" class="btn  btn-warning btn-sm">
-                        <i class="far fa-edit"></i>
-                         </button>
+                     <td class="text-right">                       
+                        <i class="far fa-edit edit-product"></i>                       
                     </td>
                   </tr>   
                 `;
@@ -88,17 +109,15 @@ const UIController = (function () {
         },
         addProduct: function (prd) {
 
-            document.querySelector(Selectors.productCard).style.display='block';
+            document.querySelector(Selectors.productCard).style.display = 'block';
             var item = `            
                 <tr>
                 <td>${prd.id}</td>
                 <td>${prd.name}</td>
                 <td>${prd.price} $</td>
                 <td class="text-right">
-                    <button type="submit" class="btn  btn-warning btn-sm">
-                <i class="far fa-edit"></i>
-                    </button>
-            </td>
+                   <i class="far fa-edit edit-product"></i> 
+                </td>
             </tr>              
             `;
 
@@ -110,10 +129,17 @@ const UIController = (function () {
         },
         hideCard: function () {
             document.querySelector(Selectors.productCard).style.display = 'none';
+        },
+        showTotal: function (total) {
+            document.querySelector(Selectors.totalDolar).textContent = total;
+            document.querySelector(Selectors.totalTL).textContent = total * 4.5;
+        },
+        addProductToForm: function () {
+            const selectedProduct = ProductController.getCurrentProduct();
+            document.querySelector(Selectors.productName).value = selectedProduct.name;
+            document.querySelector(Selectors.productPrice).value = selectedProduct.price;
         }
     }
-
-
 })();
 
 
@@ -128,6 +154,9 @@ const App = (function (ProductCtrl, UICtrl) {
         // add product event
         document.querySelector(UISelectors.addButton).addEventListener('click', productAddSubmit);
 
+        // edit product
+        document.querySelector(UISelectors.productList).addEventListener('click', productEditSubmit);
+
     }
 
     const productAddSubmit = function (e) {
@@ -140,15 +169,38 @@ const App = (function (ProductCtrl, UICtrl) {
             const newProduct = ProductCtrl.addProduct(productName, productPrice);
 
             // add item to list
-            UIController.addProduct(newProduct);
+            UICtrl.addProduct(newProduct);
+
+            // get total
+            const total = ProductCtrl.getTotal();
+
+            // show total
+            UICtrl.showTotal(total);
 
             // clear inputs
-            UIController.clearInputs();
-
+            UICtrl.clearInputs();
         }
 
         console.log(productName, productPrice);
 
+        e.preventDefault();
+    }
+
+    const productEditSubmit = function (e) {
+
+        if (e.target.classList.contains('edit-product')) {
+
+            const id = e.target.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.textContent;
+
+            // get selected product
+            const product = ProductCtrl.getProductById(id);
+
+            // set current product
+            ProductCtrl.setCurrentProduct(product);
+
+            // add product to UI
+            UICtrl.addProductToForm();
+        }
         e.preventDefault();
     }
 
@@ -162,6 +214,12 @@ const App = (function (ProductCtrl, UICtrl) {
             } else {
                 UICtrl.createProductList(products);
             }
+
+            // get total
+            const total = ProductCtrl.getTotal();
+
+            // show total
+            UICtrl.showTotal(total);
 
             // load event listeners
             loadEventListeners()
