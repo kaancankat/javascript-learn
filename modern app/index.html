@@ -281,18 +281,10 @@
         document.querySelector("#neighbors").innerHTML =  html;
     }
    
-    function renderError(err) {
-        const html = `
             <div class="alert alert-danger">
                 ${err.message}
             </div>
-        `;
-        setTimeout(function() {
-            document.querySelector("#errors").innerHTML = "";
-        }, 3000);
-        document.querySelector("#errors").innerHTML = html;
-    }
-   </script>
+
+
+
     
-</body>
-</html>
