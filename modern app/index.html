@@ -281,7 +281,21 @@
         document.querySelector("#neighbors").innerHTML =  html;
     }
    
+       const request = new XMLHttpRequest();
 
+       request.open('GET', 'https://restcountries.com/v3.1/name/turkey');
+       request.send();
 
+       // async
 
+       request.addEventListener('load', function() {
+            const data = JSON.parse(this.responseText);
+            console.log(typeof data);            
+            console.log(data[0]);            
+            // string to json
+
+       });
+   </script>
     
+</body>
+</html>

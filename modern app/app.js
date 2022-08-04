@@ -43,6 +43,25 @@ calculate.addEventListener("click", function(){
 
 });
 
+var FullTime = function(){
+    this.hourly = '30TL';
+}
 
+var PartTime = function(){
+    this.hourly = '20TL';
+}
 
+var Temporary = function(){
+    this.hourly = '15TL';
+}
 
+var factory = new Factory();
+
+var employees = [];
+
+employees.push(factory.createEmployee('fulltime'));
+employees.push(factory.createEmployee('parttime'));
+employees.push(factory.createEmployee('parttime'));
+employees.push(factory.createEmployee('temporary'));
+employees.push(factory.createEmployee('temporary'));
+employees.push(factory.createEmployee('fulltime'));
